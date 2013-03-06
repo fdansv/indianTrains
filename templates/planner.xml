@@ -1,0 +1,245 @@
+<body cached="{{cached}}">
+	{% if result|length==2 %}
+		{% for train in result[0] %}
+		{% for train2 in result[1] %}
+		{% if train['arrt'].split(".")[0]<train2['dept'].split(".")[0] %} 
+		<trip via="{{train['arrc']}}">
+		<train number="{{train['number']}}" name="{{train['tname']}}" from="{{train['depc']}}" to="{{train['arrc']}}" depart="{{train['dept']}}" arrive="{{train['arrt']}}" dur="{{train['dur']}}">
+			{% if train['av'][0]=="1" %}
+			<fare class="1A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[2].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][1]=="1" %}
+			<fare class="2A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[3].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][2]=="1" %}
+			<fare class="3A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[4].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][3]=="1" %}
+			<fare class="CC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[5].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][4]=="1" %}
+			<fare class="FC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[6].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][5]=="1" %}
+			<fare class="SL">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[7].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][6]=="1" %}
+			<fare class="2S">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[8].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][7]=="1" or train['av']=='0000000000' %}
+			<fare class="GN">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[9].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+		</train>
+
+		<train number="{{train2['number']}}" name="{{train2['tname']}}" from="{{train2['depc']}}" to="{{train2['arrc']}}" depart="{{train2['dept']}}" arrive="{{train2['arrt']}}" dur="{{train2['dur']}}">
+			{% if train2['av'][0]=="1" %}
+			<fare class="1A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[2].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][1]=="1" %}
+			<fare class="2A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[3].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][2]=="1" %}
+			<fare class="3A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[4].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][3]=="1" %}
+			<fare class="CC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[5].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][4]=="1" %}
+			<fare class="FC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[6].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][5]=="1" %}
+			<fare class="SL">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[7].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][6]=="1" %}
+			<fare class="2S">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[8].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train2['av'][7]=="1" or train2['av']=='0000000000' %}
+			<fare class="GN">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train2['fares'].split(":")[9].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+		</train>
+		</trip>
+
+
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
+	{% else %}
+		{% for train in result %}
+			<trip>
+				<train number="{{train['number']}}" name="{{train['tname']}}" from="{{train['depc']}}" to="{{train['arrc']}}" depart="{{train['dept']}}" arrive="{{train['arrt']}}" dur="{{train['dur']}}">
+			{% if train['av'][0]=="1" %}
+			<fare class="1A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[2].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][1]=="1" %}
+			<fare class="2A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[3].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][2]=="1" %}
+			<fare class="3A">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[4].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][3]=="1" %}
+			<fare class="CC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[5].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][4]=="1" %}
+			<fare class="FC">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[6].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][5]=="1" %}
+			<fare class="SL">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[7].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][6]=="1" %}
+			<fare class="2S">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[8].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+			{% if train['av'][7]=="1" or train['av']=='0000000000' %}
+			<fare class="GN">
+				{% set i=0 %}
+				{% for age in ["Adult","Child","Senior Male","other","Senior Female"] %}
+					<price age="{{age}}" value="{{train['fares'].split(":")[9].split(",")[i]}}"/>
+					{% set i=i+1 %}
+				{% endfor %}
+			</fare>
+			{% endif %}
+		</train>
+	</trip>
+	{% endfor %}
+	{% endif %}
+
+		
+	
+</body>
